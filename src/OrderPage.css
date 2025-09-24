@@ -134,6 +134,82 @@
   margin-bottom: 8px;
   width: 18px;
   height: 18px;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Custom Radio Button */
+.option-label input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ce2829;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.option-label input[type="radio"]:checked {
+  background: #ce2829;
+  border-color: #ce2829;
+}
+
+.option-label input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.option-label input[type="radio"]:hover {
+  border-color: #b71c1c;
+  background: #fff5f5;
+}
+
+/* Custom Checkbox */
+.checkbox-label input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ce2829;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  margin: 0;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  background: #ce2829;
+  border-color: #ce2829;
+}
+
+.checkbox-label input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.checkbox-label input[type="checkbox"]:hover {
+  border-color: #b71c1c;
+  background: #fff5f5;
 }
 
 .size-name {
@@ -149,17 +225,56 @@
 
 .dough-select {
   width: 100%;
-  padding: 12px;
+  padding: 14px 16px;
   border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 16px;
-  background: white;
-  transition: border-color 0.3s ease;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.dough-select:hover {
+  border-color: #ce2829;
+  background: linear-gradient(135deg, #fff5f5 0%, #f8f5f5 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(206, 40, 41, 0.1);
 }
 
 .dough-select:focus {
   outline: none;
   border-color: #ce2829;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  box-shadow: 0 0 0 3px rgba(206, 40, 41, 0.1);
+}
+
+.note-input {
+  width: 100%;
+  min-height: 120px;
+  padding: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  resize: vertical;
+  font-family: inherit;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.note-input:hover {
+  border-color: #ce2829;
+  background: linear-gradient(135deg, #fff5f5 0%, #f8f5f5 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(206, 40, 41, 0.1);
+}
+
+.note-input:focus {
+  outline: none;
+  border-color: #ce2829;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+  box-shadow: 0 0 0 3px rgba(206, 40, 41, 0.1);
 }
 
 .extras-info {
@@ -240,30 +355,35 @@
 }
 
 .quantity-btn {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border: 2px solid #e0e0e0;
-  background: white;
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
   border-radius: 50%;
   cursor: pointer;
-  font-size: 18px;
-  font-weight: 600;
-  color: #1d1d1d;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ce2829;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .quantity-btn:hover:not(:disabled) {
   border-color: #ce2829;
-  background-color: #fff5f5;
-  color: #ce2829;
+  background: linear-gradient(135deg, #fff5f5 0%, #f8f5f5 100%);
+  color: #b71c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(206, 40, 41, 0.2);
 }
 
 .quantity-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+  background: #f5f5f5;
+  color: #ccc;
 }
 
 .quantity {
@@ -287,7 +407,7 @@
 }
 
 .order-button {
-  background-color: #ce2829;
+  background: linear-gradient(135deg, #ce2829 0%, #b71c1c 100%);
   color: white;
   border: none;
   padding: 15px 30px;

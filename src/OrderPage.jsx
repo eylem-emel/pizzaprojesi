@@ -1,5 +1,6 @@
 // src/OrderPage.jsx
 import { useState } from 'react';
+import axios from 'axios';
 import { pizzaData } from './mockData';
 import './OrderPage.css';
 
@@ -26,8 +27,9 @@ const OrderPage = ({ onOrderSubmit }) => {
     );
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     const order = {
       pizza: pizzaData.name,
       size: selectedSize?.name,
@@ -39,8 +41,13 @@ const OrderPage = ({ onOrderSubmit }) => {
       note,
       total: calculateTotal()
     };
-    console.log('Sipariş Verildi:', order);
-    onOrderSubmit(order);
+
+    try {
+      await onOrderSubmit(order);
+    } catch (error) {
+      // Error handling is done in parent component (App.jsx)
+      console.error('Order submission failed:', error);
+    }
   };
 
   return (
